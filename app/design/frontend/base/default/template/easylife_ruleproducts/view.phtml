@@ -1,0 +1,14 @@
+<?php
+$_rule  = $this->getCurrentRuleproduct();
+//TODO: add image and description
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="page-title rule-title">
+    <h1><?php echo $_rule->getTitle() ?></h1>
+</div>
+<?php $_img = $_rule->getImage(); ?>
+<?php if ($_img) : ?>
+    <img src="<?php echo Mage::helper('easylife_ruleproducts/ruleproduct_image')->init($_rule, 'image')?>" alt="" />
+<?php endif;?>
+<?php echo $_rule->getDescription();?>
+<?php echo $this->getChildHtml();?>

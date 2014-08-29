@@ -1,0 +1,65 @@
+"%d Product Rules based on ""%s"" attribute have been disabled.","%d Product Rules based on ""%s"" attribute have been disabled."
+Action,Action
+"Add Products Rule","Add Products Rule"
+"Add Rule Product","Add Rule Product"
+"An error occurred while updating the rule products.","An error occurred while updating the rule products."
+"Are you sure?","Are you sure?"
+CSV,CSV
+"Change Include in main menu","Change Include in main menu"
+"Change status","Change status"
+Conditions,Conditions
+"Conditions (leave blank for all products)","Conditions (leave blank for all products)"
+"Create Products Rule","Create Products Rule"
+"Created at","Created at"
+"Default Values","Default Values"
+Delete,Delete
+"Delete Products Rule","Delete Products Rule"
+Disabled,Disabled
+Edit,Edit
+"Edit Products Rule '%s'","Edit Products Rule '%s'"
+Enabled,Enabled
+"Error saving rule product","Error saving rule product"
+Excel,Excel
+"Group all lists in the main menu","Group all lists in the main menu"
+Home,Home
+Id,Id
+"Include in main menu","Include in main menu"
+"Leave empty for no prefix","Leave empty for no prefix"
+"Manage Rule Products","Manage Rule Products"
+"Menu group label","Menu group label"
+Meta,Meta
+No,No
+"Please select rule products.","Please select rule products."
+"Position in menu","Position in menu"
+"Products Rule Information","Products Rule Information"
+"Rule Product","Rule Product"
+"Rule Product Information","Rule Product Information"
+"Rule Product view page","Rule Product view page"
+"Rule Product was saved","Rule Product was saved"
+"Rule Products","Rule Products"
+RuleProducts,RuleProducts
+"Save And Continue Edit","Save And Continue Edit"
+"Save Products Rule","Save Products Rule"
+Status,Status
+"The rule products has been deleted.","The rule products has been deleted."
+"There was an error updating rule products.","There was an error updating rule products."
+"This attribute is not deletable","This attribute is not deletable"
+"This rule product no longer exists.","This rule product no longer exists."
+Title,Title
+"Title in %s","Title in %s"
+"Total of %d record(s) have been deleted.","Total of %d record(s) have been deleted."
+"Total of %d record(s) have been updated.","Total of %d record(s) have been updated."
+"Total of %d rule products were successfully updated.","Total of %d rule products were successfully updated."
+"URL key","URL key"
+"URL prefix","URL prefix"
+"Updated at","Updated at"
+"Url suffix","Url suffix"
+"Use Breadcrumbs","Use Breadcrumbs"
+"Use Default Value","Use Default Value"
+"What goes after the dot. Leave empty for no suffix.","What goes after the dot. Leave empty for no suffix."
+XML,XML
+Yes,Yes
+[GLOBAL],[GLOBAL]
+"[STORE VIEW]","[STORE VIEW]"
+[WEBSITE],[WEBSITE]
+conditions,conditions

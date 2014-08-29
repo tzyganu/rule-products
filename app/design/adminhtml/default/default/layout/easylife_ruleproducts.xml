@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Easylife_RuleProducts extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Easylife
+ * @package        Easylife_RuleProducts
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_ruleproducts_ruleproduct_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>catalog/easylife_ruleproducts</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="easylife_ruleproducts/adminhtml_ruleproduct" name="ruleproduct">
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+
+        </reference>
+    </adminhtml_ruleproducts_ruleproduct_index>
+    <adminhtml_ruleproducts_ruleproduct_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="easylife_ruleproducts/adminhtml_ruleproduct_grid" name="ruleproduct_grid"/>
+        </block>
+    </adminhtml_ruleproducts_ruleproduct_grid>
+    <!-- Ruleproduct add/edit action -->
+    <adminhtml_ruleproducts_ruleproduct_edit>
+        <update handle="editor"/>
+        <reference name="head">
+            <action method="setCanLoadTinyMce"><load>1</load></action>
+            <action method="setCanLoadExtJs"><flag>1</flag></action>
+            <action method="setCanLoadRulesJs"><flag>1</flag></action>
+        </reference>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>catalog/easylife_ruleproducts/ruleproduct</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="easylife_ruleproducts/adminhtml_ruleproduct_edit" name="ruleproduct_edit" />
+        </reference>
+        <reference name="left">
+            <block type="adminhtml/store_switcher" name="store_switcher" before="-" />
+            <block type="easylife_ruleproducts/adminhtml_ruleproduct_edit_tabs" name="ruleproduct_tabs" />
+        </reference>
+        <reference name="js">
+            <block type="core/template" name="catalog.wysiwyg.js" template="catalog/wysiwyg/js.phtml"/>
+        </reference>
+    </adminhtml_ruleproducts_ruleproduct_edit>
+    <adminhtml_promo_catalog_edit>
+        <reference name="promo_catalog_edit">
+            <block type="easylife_ruleproducts/adminhtml_button" name="rulr_product_button">
+                <action method="addButtonToParent" />
+            </block>
+        </reference>
+    </adminhtml_promo_catalog_edit>
+</layout>

@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Easylife_RuleProducts extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Easylife
+ * @package        Easylife_RuleProducts
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Easylife_RuleProducts>
+            <version>1.0.0</version>
+        </Easylife_RuleProducts>
+    </modules>
+    <global>
+        <resources>
+            <easylife_ruleproducts_setup>
+                <setup>
+                    <module>Easylife_RuleProducts</module>
+                    <class>Easylife_RuleProducts_Model_Resource_Setup</class>
+                </setup>
+            </easylife_ruleproducts_setup>
+        </resources>
+        <blocks>
+            <easylife_ruleproducts>
+                <class>Easylife_RuleProducts_Block</class>
+            </easylife_ruleproducts>
+        </blocks>
+        <helpers>
+            <easylife_ruleproducts>
+                <class>Easylife_RuleProducts_Helper</class>
+            </easylife_ruleproducts>
+        </helpers>
+        <models>
+            <easylife_ruleproducts>
+                <class>Easylife_RuleProducts_Model</class>
+                <resourceModel>easylife_ruleproducts_resource</resourceModel>
+            </easylife_ruleproducts>
+            <easylife_ruleproducts_resource>
+                <class>Easylife_RuleProducts_Model_Resource</class>
+                <entities>
+                    <ruleproduct>
+                        <table>easylife_ruleproducts_ruleproduct</table>
+                    </ruleproduct>
+                    <eav_attribute>
+                        <table>easylife_ruleproducts_eav_attribute</table>
+                    </eav_attribute>
+                    <ruleproduct_product>
+                        <table>easylife_ruleproducts_ruleproduct_product</table>
+                    </ruleproduct_product>
+                </entities>
+            </easylife_ruleproducts_resource>
+        </models>
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <easylife_ruleproducts>
+                        <class>Easylife_RuleProducts_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </easylife_ruleproducts>
+                </observers>
+            </controller_front_init_routers>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+                    <easylife_ruleproducts>
+                        <class>easylife_ruleproducts/observer</class>
+                        <method>addItemsToMenu</method>
+                    </easylife_ruleproducts>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+        </events>
+        <index>
+            <indexer>
+                <easylife_ruleproducts_clear>
+                    <model>easylife_ruleproducts/indexer_clear</model>
+                </easylife_ruleproducts_clear>
+                <easylife_ruleproducts_rebuild>
+                    <model>easylife_ruleproducts/indexer_rebuild</model>
+                </easylife_ruleproducts_rebuild>
+            </indexer>
+        </index>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <easylife_ruleproducts>
+                    <file>easylife_ruleproducts.xml</file>
+                </easylife_ruleproducts>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Easylife_RuleProducts>
+                    <files>
+                        <default>Easylife_RuleProducts.csv</default>
+                    </files>
+                </Easylife_RuleProducts>
+            </modules>
+        </translate>
+        <events>
+            <catalog_product_save_after>
+                <observers>
+                    <easylife_ruleproducts>
+                        <class>easylife_ruleproducts/observer</class>
+                        <method>applyAllRulesOnProduct</method>
+                    </easylife_ruleproducts>
+                </observers>
+            </catalog_product_save_after>
+
+            <catalog_product_import_finish_before>
+                <observers>
+                    <easylife_ruleproducts>
+                        <class>easylife_ruleproducts/observer</class>
+                        <method>cleanProductRulesRelations</method>
+                    </easylife_ruleproducts>
+                </observers>
+            </catalog_product_import_finish_before>
+
+            <catalog_entity_attribute_delete_after>
+                <observers>
+                    <easylife_ruleproducts>
+                        <class>easylife_ruleproducts/observer</class>
+                        <method>catalogAttributeDeleteAfter</method>
+                    </easylife_ruleproducts>
+                </observers>
+            </catalog_entity_attribute_delete_after>
+            <catalog_entity_attribute_save_after>
+                <observers>
+                    <easylife_ruleproducts>
+                        <class>easylife_ruleproducts/observer</class>
+                        <method>catalogAttributeSaveAfter</method>
+                    </easylife_ruleproducts>
+                </observers>
+            </catalog_entity_attribute_save_after>
+        </events>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Easylife_RuleProducts before="Mage_Adminhtml">Easylife_RuleProducts_Adminhtml</Easylife_RuleProducts>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <easylife_ruleproducts>
+                <use>standard</use>
+                <args>
+                    <module>Easylife_RuleProducts</module>
+                    <frontName>ruleproducts</frontName>
+                </args>
+            </easylife_ruleproducts>
+        </routers>
+        <layout>
+            <updates>
+                <easylife_ruleproducts>
+                    <file>easylife_ruleproducts.xml</file>
+                </easylife_ruleproducts>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Easylife_RuleProducts>
+                    <files>
+                        <default>Easylife_RuleProducts.csv</default>
+                    </files>
+                </Easylife_RuleProducts>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <easylife_ruleproducts>
+            <ruleproduct>
+                <breadcrumbs>1</breadcrumbs>
+                <meta_title>Rule Products</meta_title>
+            </ruleproduct>
+        </easylife_ruleproducts>
+    </default>
+</config>

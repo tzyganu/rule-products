@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Easylife_RuleProducts extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Easylife
+ * @package        Easylife_RuleProducts
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <easylife_ruleproducts translate="title" module="easylife_ruleproducts">
+                                        <title>RuleProducts</title>
+                                    </easylife_ruleproducts>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <catalog>
+                        <children>
+                            <easylife_ruleproducts translate="title" module="easylife_ruleproducts">
+                                <title>Rule Products</title>
+                            </easylife_ruleproducts>
+                        </children>
+                    </catalog>
+
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <catalog>
+            <children>
+                <easylife_ruleproducts translate="title" module="easylife_ruleproducts">
+                    <title>Rule Products</title>
+                    <action>adminhtml/ruleproducts_ruleproduct</action>
+                    <sort_order>0</sort_order>
+                </easylife_ruleproducts>
+            </children>
+        </catalog>
+
+    </menu>
+</config>
