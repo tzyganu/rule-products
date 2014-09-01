@@ -83,6 +83,13 @@ class Easylife_RuleProducts_Block_View
         }
         return $_image;
     }
+
+    /**
+     * set orders to list
+     * @access public
+     * @return $this
+     * @author Marius Strajeru
+     */
     public function setListOrders() {
         $productList = $this->getChild('product-list');
         if (!$productList) {

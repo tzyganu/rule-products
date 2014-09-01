@@ -43,6 +43,7 @@
  * @method int getResizeX()
  * @method int getResizeY()
  * @method string getImage()
+ * @method array getAvailableSortByOptions()
  */
 class Easylife_RuleProducts_Model_Ruleproduct
     extends Mage_Catalog_Model_Abstract {
