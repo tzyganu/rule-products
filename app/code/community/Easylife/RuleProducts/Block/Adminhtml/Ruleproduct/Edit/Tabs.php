@@ -50,7 +50,7 @@ class Easylife_RuleProducts_Block_Adminhtml_Ruleproduct_Edit_Tabs
         /** @var Mage_Eav_Model_Resource_Entity_Attribute_Collection $attributes */
         $attributes = Mage::getResourceModel('eav/entity_attribute_collection')
                 ->setEntityTypeFilter($entity->getEntityTypeId());
-        $attributes->addFieldToFilter('attribute_code', array('nin'=>array('meta_title', 'meta_description', 'meta_keywords')));
+        $attributes->addFieldToFilter('attribute_code', array('nin'=>array('meta_title', 'meta_description', 'meta_keywords', 'available_sort_by', 'default_sort_by')));
         $attributes->getSelect()->order('additional_table.position', 'ASC');
 
         /** @var Easylife_RuleProducts_Block_Adminhtml_Ruleproduct_Edit_Tab_Attributes $block */
@@ -59,6 +59,20 @@ class Easylife_RuleProducts_Block_Adminhtml_Ruleproduct_Edit_Tabs
             'label'     => Mage::helper('easylife_ruleproducts')->__('Rule Product Information'),
             'content'   => $block->setAttributes($attributes)->toHtml(),
         ));
+
+        /** @var Mage_Eav_Model_Resource_Entity_Attribute_Collection $attributes */
+        $designAttributes = Mage::getResourceModel('eav/entity_attribute_collection')
+            ->setEntityTypeFilter($entity->getEntityTypeId());
+        $designAttributes->addFieldToFilter('attribute_code', array('in'=>array('available_sort_by', 'default_sort_by')));
+        $designAttributes->getSelect()->order('additional_table.position', 'ASC');
+
+        /** @var Easylife_RuleProducts_Block_Adminhtml_Ruleproduct_Edit_Tab_Attributes $block */
+        $block = $this->getLayout()->createBlock('easylife_ruleproducts/adminhtml_ruleproduct_edit_tab_attributes');
+        $this->addTab('display', array(
+            'label'     => Mage::helper('easylife_ruleproducts')->__('Display Settings'),
+            'content'   => $block->setAttributes($designAttributes)->toHtml(),
+        ));
+
         /** @var Mage_Eav_Model_Resource_Entity_Attribute_Collection $seoAttributes */
         $seoAttributes = Mage::getResourceModel('eav/entity_attribute_collection')
                 ->setEntityTypeFilter($entity->getEntityTypeId())

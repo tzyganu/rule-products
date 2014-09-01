@@ -21,11 +21,15 @@
         <label>Rule Product view page</label>
         <update handle="page_two_columns_left" />
         <reference name="left">
-            <block type="easylife_ruleproducts/layer_view" name="easylife_products.leftnav" before="-" template="catalog/layer/view.phtml"/>
+            <block type="easylife_ruleproducts/layer_view" name="easylife_products.leftnav" before="-" template="catalog/layer/view.phtml">
+                <block type="core/text_list" name="catalog.leftnav.state.renderers" as="state_renderers" />
+            </block>
         </reference>
         <reference name="content">
             <block type="easylife_ruleproducts/view" template="easylife_ruleproducts/view.phtml" name="rule-view">
                 <block type="easylife_ruleproducts/product_list" template="catalog/product/list.phtml" name="product-list">
+                    <block type="core/text_list" name="product_list.name.after" as="name.after" />
+                    <block type="core/text_list" name="product_list.after" as="after" />
                     <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
                         <block type="page/html_pager" name="product_list_toolbar_pager"/>
                     </block>
@@ -36,6 +40,7 @@
                     <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
                     <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
                 </block>
+                <action method="setListOrders"/>
             </block>
         </reference>
     </easylife_ruleproducts_ruleproduct_view>

@@ -40,6 +40,9 @@
  * @method string getUrlKey()
  * @method Easylife_RuleProducts_Model_Ruleproduct setCollectedAttributes()
  * @method array getCollectedAttributes()
+ * @method int getResizeX()
+ * @method int getResizeY()
+ * @method string getImage()
  */
 class Easylife_RuleProducts_Model_Ruleproduct
     extends Mage_Catalog_Model_Abstract {
@@ -447,5 +450,48 @@ class Easylife_RuleProducts_Model_Ruleproduct
         }
         $this->getResource()->applyToProduct($this, $product);
         return $this;
+    }
+
+    /**
+     * get available sort options
+     * @access public
+     * @return array
+     * @author Marius Strajeru
+     */
+    public function getAvailableSortByOptions() {
+        $availableSortBy = array();
+        $defaultSortBy   = Mage::getSingleton('catalog/config')
+            ->getAttributeUsedForSortByArray();
+        if ($this->getAvailableSortBy()) {
+            foreach ($this->getAvailableSortBy() as $sortBy) {
+                if (isset($defaultSortBy[$sortBy])) {
+                    $availableSortBy[$sortBy] = $defaultSortBy[$sortBy];
+                }
+            }
+        }
+
+        if (!$availableSortBy) {
+            $availableSortBy = $defaultSortBy;
+        }
+
+        return $availableSortBy;
+    }
+    /**
+     * Retrieve Product Listing Default Sort By
+     * @access public
+     * @return string
+     * @author Marius Strajeru
+     */
+    public function getDefaultSortBy() {
+        if (!$sortBy = $this->getData('default_sort_by')) {
+            $sortBy = Mage::getSingleton('catalog/config')
+                ->getProductListDefaultSortBy($this->getStoreId());
+        }
+        $available = $this->getAvailableSortByOptions();
+        if (!isset($available[$sortBy])) {
+            $sortBy = array_keys($available);
+            $sortBy = $sortBy[0];
+        }
+        return $sortBy;
     }
 }

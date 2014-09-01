@@ -1,14 +1,29 @@
 <?php
-$_rule  = $this->getCurrentRuleproduct();
-//TODO: add image and description
+/**
+ * Easylife_RuleProducts extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category       Easylife
+ * @package        Easylife_RuleProducts
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
 ?>
+<?php /** @var Easylife_RuleProducts_Model_Ruleproduct $_rule */ ?>
+<?php $_rule  = $this->getCurrentRuleproduct();?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <div class="page-title rule-title">
     <h1><?php echo $_rule->getTitle() ?></h1>
 </div>
-<?php $_img = $_rule->getImage(); ?>
+<?php $_img = $this->getImage(); ?>
 <?php if ($_img) : ?>
-    <img src="<?php echo Mage::helper('easylife_ruleproducts/ruleproduct_image')->init($_rule, 'image')?>" alt="" />
+    <img src="<?php echo $_img?>" alt="<?php echo Mage::helper('core')->escapeHtml($_rule->getTitle())?>" />
 <?php endif;?>
 <?php echo $_rule->getDescription();?>
 <?php echo $this->getChildHtml();?>
