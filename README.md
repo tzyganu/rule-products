@@ -1,4 +1,4 @@
-Magento Rule Product Pages v1.0.0-beta
+Magento Rule Product Pages v1.0.0
 =============
 
 This extension allows you to create product list pages based on rules.  
